@@ -1,0 +1,21 @@
+extends ../layout/common
+
+block content
+
+  .container
+    h1 Transactions
+    a(href="/transactions/create") Create New Book For User
+    
+    table.table
+      tr
+        th User Id
+        th Book Id
+        th Status
+        th Update Status
+      each transaction in transactions
+        tr
+          td= transaction.userId
+          td= transaction.bookId
+          td= transaction.status
+          td
+            a(href="/transactions/"+transaction.id+"/complete") Update Status

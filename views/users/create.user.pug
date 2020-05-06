@@ -1,0 +1,10 @@
+extends ../layout/common
+
+block content
+
+  .container
+    h1 Create User
+
+    form.d-flex(action='/users/create', method='POST')
+      input.form-control.shadow-none(name='userName', type='text', placeholder='User Name')
+      button.btn.btn-primary.ml-2.shadow-none(type='submit') Create

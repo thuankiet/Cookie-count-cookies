@@ -1,0 +1,24 @@
+extends ../layout/common
+
+block content
+
+  .container
+    if error
+      each err in error
+        .alert.alert-warning.alert-dismissible.fade.show(role='alert')= err
+    
+    h1 User List
+    a(href="/users/create") Create New User
+    
+    table.table
+      tr
+        th Name
+        th Edit Name
+        th Delete Name
+      each user in users
+        tr
+          td= user.userName
+          td
+            a(href="/users/edit-user/"+user.id, style="background-color:dodgerblue; text-decoration:none; color:white") Edit Name
+          td
+            a(href="/users/delete/"+user.id, style="background-color:red; text-decoration:none; color:white") Delete

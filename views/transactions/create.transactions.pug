@@ -1,0 +1,29 @@
+extends ../layout/common
+
+block content
+  
+  .container
+    h1 Rent Book
+
+    form(action='/transactions/create', method='POST')
+      label Choose your user:
+      span &nbsp
+      select.form-control.shadow-none(name='userName')
+        each user in users
+          option= user.userName
+      br
+      label Choose your book:
+      span &nbsp
+      select.form-control.shadow-none(name='bookName')
+        each book in books
+          option= book.title
+      br
+      label Choose status:
+      span &nbsp
+      select.form-control.shadow-none(name='status')
+        option None
+        option Complete
+      br
+      button.btn.btn-primary.shadow-none(type='submit') Rent
+  
+    
